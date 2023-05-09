@@ -1,0 +1,11 @@
+<div class="container ,t-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1><%= "#{@task.completed ? "✅ " : "🚨 "}" %><%= @task.title %></h1>
+    <div class="buttons">
+      <%= link_to "✏️", edit_task_path, class: 'btn btn-light'%>
+      <%= link_to "↩️", tasks_path, class: 'btn btn-light' %>
+    </div>
+  </div>
+  <h2><%= @task.details %></h2>
+
+</div>

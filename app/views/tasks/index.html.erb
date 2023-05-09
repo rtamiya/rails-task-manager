@@ -1,0 +1,15 @@
+<div class="container mt-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>All Tasks</h1>
+    <%= link_to '+', new_task_path, class: 'btn btn-light' %>
+  </div>
+
+  <% @tasks.each do |task| %>
+    <p>
+    <%= "#{task.completed ? "✅" : "🚨"}" %>
+    <%= link_to task.title, task_path(task), class: 'text-secondary text-decoration-none'%>
+    <%= link_to " 🗑️", task_path(task),  data: { turbo_method: :delete, turbo_confirm: "Delete #{task.title}?" }, class: 'text-secondary text-decoration-none'%>
+    </p>
+    <!-- <p><%= "completed: #{task.completed}" %></p> -->
+  <% end %>
+</div>
